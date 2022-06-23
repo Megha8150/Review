@@ -1,6 +1,8 @@
 #!/bin/bash -x
 
-echo "Welcome to Employee Wage Computation Program"
+echo "Welcome to Employee Wage Computation Progam"
+
+declare -a Wage
 
 Month_work_days=20
 Total_work_hours=0
@@ -37,7 +39,8 @@ do
 	Total_work_hours=$(($Total_work_hours+$hr))
 	Monthly_wage=$(($Daily_wage*$Month_work_days))
 	Total_work_days=$(($Total_work_days+1))
-
+	Wage[$Total_work_hours]+=$Daily_wage" "
 done
 echo $Total_work_hours
 echo $Total_work_days
+echo ${Wage[@]}
