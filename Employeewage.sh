@@ -9,17 +9,21 @@ Daily_wage=0
 
 a=$((RANDOM%3))
 
-if [ $a -eq 0 ]
-then
+case $a in
+
+	0)
 	echo  "Employee is present"
 	Daily_wage=$(($Wage_per_hour*$Full_day_hour))
-	echo "Employee Daily wage is " $Daily_wage
-elif [ $a -eq 1 ]
-then
+	echo "Employee Daily wage is " $Daily_wage  
+	;;
+
+	1)
 	echo  "Employee working partime"
 	Daily_wage=$(($Wage_per_hour*$Half_day_hour))
         echo "Employee Daily wage is " $Daily_wage
-else
-	echo "Employee is absent"
+	;;
 
-fi
+	2)
+	echo "Employee is absent"
+	;;
+esac
